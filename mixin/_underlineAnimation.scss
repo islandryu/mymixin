@@ -1,0 +1,95 @@
+@mixin underlineAnimation($color, $transition, $height) {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: $height;
+    background: $color;
+    transition: $transition;
+  }
+}
+@mixin underlineAnimationFadeTop($color, $transition: 0.5s, $height: 2px) {
+  @include underlineAnimation($color, $transition, $height);
+  &::after {
+    bottom: 2px;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:hover::after {
+    bottom: -4px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@mixin underlineAnimationFadeBottom($color, $transition: 0.5s, $height: 2px) {
+  @include underlineAnimation($color, $transition, $height);
+  &::after {
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:hover::after {
+    bottom: -4px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@mixin underlineAnimationLeftToRight($color, $transition: 0.5s, $height: 2px) {
+  @include underlineAnimation($color, $transition, $height);
+  &::after {
+    bottom: -4px;
+    left: 0;
+    transform: scale(0, 1);
+    transform-origin: left top;
+  }
+  &:hover::after {
+    transform: scale(1, 1);
+  }
+}
+
+@mixin underlineAnimationRightToLeft($color, $transition: 0.5s, $height: 2px) {
+  @include underlineAnimation($color, $transition, $height);
+  &::after {
+    bottom: -4px;
+    left: 0;
+    transform: scale(0, 1);
+    transform-origin: right top;
+  }
+  &:hover::after {
+    transform: scale(1, 1);
+  }
+}
+
+@mixin underlineAnimationLeftInRight($color, $transition: 0.5s, $height: 2px) {
+  @include underlineAnimation($color, $transition, $height);
+  &::after {
+    bottom: -4px;
+    left: 0;
+    transform: scale(0, 1);
+    transform-origin: left top;
+  }
+  &:hover::after {
+    transform-origin: right top;
+    transform: scale(1, 1);
+  }
+}
+
+@mixin underlineAnimationRightInLeft($color, $transition: 0.5s, $height: 2px) {
+  @include underlineAnimation($color, $transition, $height);
+  &::after {
+    bottom: -4px;
+    left: 0;
+    transform: scale(0, 1);
+    transform-origin: right top;
+  }
+  &:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+}

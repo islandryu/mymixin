@@ -1,0 +1,15 @@
+{
+  "name": "mymixin",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build":"node-sass --include-path scss test/index.scss ./index.css",
+    "watch":"node-sass --include-path scss test/index.scss ./index.css -w"
+  },
+  "author": "islandryu <shimaryuhei@gmail.com> (https://github.com/islandryu)",
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}
