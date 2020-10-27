@@ -1,0 +1,9 @@
+@mixin borderGradient() {
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: linear-gradient(to right, #43c6ac 0%, #d9e653 100%);
+  }
+}

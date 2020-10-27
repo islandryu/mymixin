@@ -1,0 +1,14 @@
+@mixin gradation($start-bgc, $bgcArr, $transition: 5s) {
+  background-color: $start-bgc;
+  animation: mygradation $transition infinite;
+  @keyframes mugradation {
+    0% {
+      background-color: $start-bgc;
+    }
+    @if length($bgcArr) ==1 {
+      100% {
+        background-color: nth($bgcArr, 1);
+      }
+    }
+  }
+}
